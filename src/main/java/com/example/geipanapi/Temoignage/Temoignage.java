@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Document(collection = "Temoignage")
-private class Temoignage {
+public class Temoignage {
     @Id
     private String _id;
     private int id_cas;
