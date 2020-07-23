@@ -1,6 +1,6 @@
 package com.example.geipanapi.controllers;
 
-import com.example.geipanapi.Temoignage.Temoignage;
+import com.example.geipanapi.entity.Temoignage;
 import com.example.geipanapi.repository.TemoignageRepository;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
