@@ -1,14 +1,20 @@
 package com.example.geipanapi.controllers;
 
+import com.example.geipanapi.entity.Cas;
+import com.example.geipanapi.entity.ResultsPage;
 import com.example.geipanapi.entity.Temoignage;
 import com.example.geipanapi.repository.TemoignageRepository;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -19,17 +25,28 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class TemoignageController {
 
+    @Autowired private TemoignageRepository temoignageRepository;
+
     private MongoTemplate mongoTemplate;
     public TemoignageController(MongoTemplate mongoTemplate){
         this.mongoTemplate = mongoTemplate;
     }
 
-    @Autowired private TemoignageRepository temoignageRepository;
-
     @GetMapping("/all")
     public List<Temoignage> getAll() {
         return this.temoignageRepository.findAll();
     }
+
+    @GetMapping("/page")
+    public ResultsPage getAll(@RequestParam("page") int selectPage, @RequestParam int pageSize, @RequestParam(required = false) String sortField) {
+        Sort sort = Sort.by(Sort.Direction.ASC, sortField != null ? sortField: "obs_date_heure");
+        PageRequest pageRequest = PageRequest.of(selectPage, pageSize);
+        Page<Temoignage> page = this.temoignageRepository.findAll(pageRequest, sort);
+
+        ResultsPage resultsPage = new ResultsPage(selectPage, page.getTotalPages(), page.getTotalElements(), page.getContent());
+        return resultsPage;
+    }
+
 
     @GetMapping("/range/{start}/{end}")
     public List<DBObject> getByRangeDate(@PathVariable long start, @PathVariable long end) {

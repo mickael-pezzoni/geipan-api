@@ -13,21 +13,21 @@ public class Cas {
     private String id_cas;
     private String cas_nom_dossier;
     private String cas_zone_nom;
-    private int cas_zone_code;
+    private String cas_zone_code;
     private String cas_zone_type;
-    private int cas_AAAA;
-    private int cas_MM;
-    private int cas_JJ;
+    private String cas_AAAA;
+    private String cas_MM;
+    private String cas_JJ;
     private String cas_resume;
     private String cas_resume_web;
     private String cas_public;
-    private int cas_temoignages_nb;
+    private String cas_temoignages_nb;
     private String cas_temoins_nb;
     private Date cas_date_maj;
-    private int cas_etrangete_calc;
-    private int cas_etrangete_calc_err;
-    private int cas_consistance_calc;
-    private int cas_consistance_calc_err;
+    private String cas_etrangete_calc;
+    private String cas_etrangete_calc_err;
+    private String cas_consistance_calc;
+    private String cas_consistance_calc_err;
     private String cas_classification;
     private String cas_classification_calc;
     private String cas_numEtude;
@@ -64,11 +64,11 @@ public class Cas {
         this.cas_zone_nom = cas_zone_nom;
     }
 
-    public int getCas_zone_code() {
+    public String getCas_zone_code() {
         return cas_zone_code;
     }
 
-    public void setCas_zone_code(int cas_zone_code) {
+    public void setCas_zone_code(String cas_zone_code) {
         this.cas_zone_code = cas_zone_code;
     }
 
@@ -80,27 +80,27 @@ public class Cas {
         this.cas_zone_type = cas_zone_type;
     }
 
-    public int getCas_AAAA() {
+    public String getCas_AAAA() {
         return cas_AAAA;
     }
 
-    public void setCas_AAAA(int cas_AAAA) {
+    public void setCas_AAAA(String cas_AAAA) {
         this.cas_AAAA = cas_AAAA;
     }
 
-    public int getCas_MM() {
+    public String getCas_MM() {
         return cas_MM;
     }
 
-    public void setCas_MM(int cas_MM) {
+    public void setCas_MM(String cas_MM) {
         this.cas_MM = cas_MM;
     }
 
-    public int getCas_JJ() {
+    public String getCas_JJ() {
         return cas_JJ;
     }
 
-    public void setCas_JJ(int cas_JJ) {
+    public void setCas_JJ(String cas_JJ) {
         this.cas_JJ = cas_JJ;
     }
 
@@ -128,11 +128,11 @@ public class Cas {
         this.cas_public = cas_public;
     }
 
-    public int getCas_temoignages_nb() {
+    public String getCas_temoignages_nb() {
         return cas_temoignages_nb;
     }
 
-    public void setCas_temoignages_nb(int cas_temoignages_nb) {
+    public void setCas_temoignages_nb(String cas_temoignages_nb) {
         this.cas_temoignages_nb = cas_temoignages_nb;
     }
 
@@ -152,35 +152,35 @@ public class Cas {
         this.cas_date_maj = cas_date_maj;
     }
 
-    public int getCas_etrangete_calc() {
+    public String getCas_etrangete_calc() {
         return cas_etrangete_calc;
     }
 
-    public void setCas_etrangete_calc(int cas_etrangete_calc) {
+    public void setCas_etrangete_calc(String cas_etrangete_calc) {
         this.cas_etrangete_calc = cas_etrangete_calc;
     }
 
-    public int getCas_etrangete_calc_err() {
+    public String getCas_etrangete_calc_err() {
         return cas_etrangete_calc_err;
     }
 
-    public void setCas_etrangete_calc_err(int cas_etrangete_calc_err) {
+    public void setCas_etrangete_calc_err(String cas_etrangete_calc_err) {
         this.cas_etrangete_calc_err = cas_etrangete_calc_err;
     }
 
-    public int getCas_consistance_calc() {
+    public String getCas_consistance_calc() {
         return cas_consistance_calc;
     }
 
-    public void setCas_consistance_calc(int cas_consistance_calc) {
+    public void setCas_consistance_calc(String cas_consistance_calc) {
         this.cas_consistance_calc = cas_consistance_calc;
     }
 
-    public int getCas_consistance_calc_err() {
+    public String getCas_consistance_calc_err() {
         return cas_consistance_calc_err;
     }
 
-    public void setCas_consistance_calc_err(int cas_consistance_calc_err) {
+    public void setCas_consistance_calc_err(String cas_consistance_calc_err) {
         this.cas_consistance_calc_err = cas_consistance_calc_err;
     }
 
