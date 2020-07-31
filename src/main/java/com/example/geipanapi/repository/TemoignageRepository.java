@@ -9,8 +9,13 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import java.util.List;
+
 public interface TemoignageRepository extends MongoRepository<Temoignage,String>, PagingAndSortingRepository<Temoignage, String> {
 
     @Query("{}")
     public Page<Temoignage> findAll(PageRequest pageRequest, Sort sort);
+
+    @Query("{'id_cas': ?0}")
+    public List<Temoignage> findById_cas(int id_cas);
 }

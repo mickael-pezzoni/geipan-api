@@ -71,4 +71,9 @@ public class TemoignageController {
 
         return aggregationResults.getMappedResults();
     }
+
+    @GetMapping("/idCas/{idCas}")
+    public List<Temoignage> getByIdCas(@PathVariable int idCas) {
+        return this.temoignageRepository.findById_cas(idCas);
+    }
 }

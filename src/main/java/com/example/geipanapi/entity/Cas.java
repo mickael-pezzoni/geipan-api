@@ -207,4 +207,32 @@ public class Cas {
     public void setCas_numEtude(String cas_numEtude) {
         this.cas_numEtude = cas_numEtude;
     }
+
+    @Override
+    public String toString() {
+        return "Cas{" +
+                "_id='" + _id + '\'' +
+                ", id_cas='" + id_cas + '\'' +
+                ", cas_nom_dossier='" + cas_nom_dossier + '\'' +
+                ", cas_zone_nom='" + cas_zone_nom + '\'' +
+                ", cas_zone_code='" + cas_zone_code + '\'' +
+                ", cas_zone_type='" + cas_zone_type + '\'' +
+                ", cas_AAAA='" + cas_AAAA + '\'' +
+                ", cas_MM='" + cas_MM + '\'' +
+                ", cas_JJ='" + cas_JJ + '\'' +
+                ", cas_resume='" + cas_resume + '\'' +
+                ", cas_resume_web='" + cas_resume_web + '\'' +
+                ", cas_public='" + cas_public + '\'' +
+                ", cas_temoignages_nb='" + cas_temoignages_nb + '\'' +
+                ", cas_temoins_nb='" + cas_temoins_nb + '\'' +
+                ", cas_date_maj=" + cas_date_maj +
+                ", cas_etrangete_calc='" + cas_etrangete_calc + '\'' +
+                ", cas_etrangete_calc_err='" + cas_etrangete_calc_err + '\'' +
+                ", cas_consistance_calc='" + cas_consistance_calc + '\'' +
+                ", cas_consistance_calc_err='" + cas_consistance_calc_err + '\'' +
+                ", cas_classification='" + cas_classification + '\'' +
+                ", cas_classification_calc='" + cas_classification_calc + '\'' +
+                ", cas_numEtude='" + cas_numEtude + '\'' +
+                '}';
+    }
 }
