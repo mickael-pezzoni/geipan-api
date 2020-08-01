@@ -51,14 +51,19 @@ public class CasController {
         return aggregationResults.getMappedResults();
     }
 
+    @PutMapping("")
+    public void editCas(@RequestBody Cas casUpdate) {
+        this.casRepository.save(casUpdate);
+    }
+
     @GetMapping("/page")
-    public ResultsPage getAll(@RequestParam("page") int selectPage, @RequestParam int pageSize, @RequestParam(required = false) String filter) {
+    public ResultsPage getAll(@RequestParam("page") int selectPage, @RequestParam int pageSize, @RequestParam(required = false) Integer filter) {
         Sort sort = Sort.by(Sort.Direction.ASC, "cas_AAAA");
         PageRequest pageRequest = PageRequest.of(selectPage, pageSize);
         Page<Cas> page;
         ResultsPage resultsPage = null;
         if (filter != null) {
-            Query query = new Query(Criteria.where("cas_resume").in(filter));
+            Query query = new Query(new Criteria("cas_AAAA").alike(Example.of(filter, ExampleMatcher.matching().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING))));
             List<Cas> cas = this.mongoTemplate.find(query, Cas.class);
             System.out.println(cas.size());
             resultsPage = new ResultsPage(selectPage, 0, cas.size(), cas);
