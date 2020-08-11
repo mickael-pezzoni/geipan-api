@@ -3,6 +3,7 @@ package com.example.geipanapi.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Arrays;
 import java.util.Date;
 
 @Document(collection = "Cas")
@@ -31,6 +32,7 @@ public class Cas {
     private String cas_classification;
     private String cas_classification_calc;
     private String cas_numEtude;
+    private Files[] files;
 
     public String get_id() {
         return _id;
@@ -208,6 +210,14 @@ public class Cas {
         this.cas_numEtude = cas_numEtude;
     }
 
+    public Files[] getFiles() {
+        return files;
+    }
+
+    public void setFiles(Files[] files) {
+        this.files = files;
+    }
+
     @Override
     public String toString() {
         return "Cas{" +
@@ -233,6 +243,7 @@ public class Cas {
                 ", cas_classification='" + cas_classification + '\'' +
                 ", cas_classification_calc='" + cas_classification_calc + '\'' +
                 ", cas_numEtude='" + cas_numEtude + '\'' +
+                ", files=" + Arrays.toString(files) +
                 '}';
     }
 }

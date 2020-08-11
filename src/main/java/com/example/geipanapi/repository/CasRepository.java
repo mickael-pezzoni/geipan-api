@@ -12,6 +12,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.awt.*;
 import java.awt.print.Pageable;
+import java.util.Date;
 import java.util.List;
 
 public interface CasRepository extends MongoRepository<Cas, String>, PagingAndSortingRepository<Cas, String> {
@@ -19,10 +20,12 @@ public interface CasRepository extends MongoRepository<Cas, String>, PagingAndSo
     @Query("{'id_cas': ?0}")
     public Cas findById_cas(String id_cas);
 
-    @Query("{:field: ?0}")
-    public Page<Cas> findCustom(PageRequest pageRequest, Sort sort, Criteria criteria);
+    @Query("{}")
+    public Page<Cas> findCustom(PageRequest pageRequest, Sort sort);
 
 
+    @Query("{'cas_date_maj' : { $gte: ?0, $lte: ?1 } }")
+    public Page<Cas> findByDate(Date from, Date to, PageRequest pageRequest);
 
 
 }
