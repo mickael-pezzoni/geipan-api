@@ -38,7 +38,7 @@ public class CasController {
 
     @GetMapping("/group")
     public List<DBObject> getCasByClassification() {
-        Aggregation aggregation = Aggregation.newAggregation(
+        Aggregation aggregation = Aggregation.newAggregation(   
                 Aggregation.group("cas_classification").addToSet(new BasicDBObject(){
                     {
                         put("id_cas", "$id_cas");
@@ -83,6 +83,10 @@ public class CasController {
 
     @GetMapping("/search")
     public List<Cas> getByFilter(@RequestParam String filterKey, @RequestParam String filterValue) {
+        String newSearchKey = filterKey;
+        if (filterKey.contains("-")) {
+            newSearchKey = filterKey.replace("-", "_");
+        }
         Query query = new Query(Criteria.where(filterKey).in(filterValue));
         /*Cas cas = new Cas();
         cas.setCas_resume(filter);
